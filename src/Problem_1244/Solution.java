@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
+/* DFS로 바꿔라 : 못품 */
 class data {
 	int number;
 	int cnt;
@@ -18,17 +18,16 @@ class data {
 	}
 
 }
-/* 이것도 안돼.. */
 public class Solution {
 		
 	public static int solution(String[] strs) {
 		int a = Integer.parseInt(strs[0]);
 		int b = Integer.parseInt(strs[1]);
 		int max = a;
-		boolean[] isVisited = new boolean[1000000];
 		Queue<data> q = new LinkedList<>();
+		List<Integer> l = new LinkedList<>();
 		q.add(new data(a, 0));
-
+		l.add(a);
 
 		while (!q.isEmpty()) {
 			data d = q.poll();
@@ -45,9 +44,9 @@ public class Solution {
 						s[j] = temp;
 						int c = Integer.parseInt(String.valueOf(s));
 
-						if (!isVisited[c]) {
+						if (!l.contains(c)) {
 							q.add(new data(c, d.cnt + 1));
-							isVisited[c] = true;
+							l.add(c);
 						}
 
 					}

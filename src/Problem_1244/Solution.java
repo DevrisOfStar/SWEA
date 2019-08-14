@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
 /* DFS로 바꿔라 : 못품 */
 class data {
 	int number;
@@ -18,8 +19,9 @@ class data {
 	}
 
 }
+
 public class Solution {
-		
+
 	public static int solution(String[] strs) {
 		int a = Integer.parseInt(strs[0]);
 		int b = Integer.parseInt(strs[1]);
@@ -31,9 +33,25 @@ public class Solution {
 
 		while (!q.isEmpty()) {
 			data d = q.poll();
+
 			if (d.cnt == b || d.cnt == String.valueOf(d.number).length()) {
-				if (max < d.number)
-					max = d.number;
+				if (b % 2 == 1 && b > String.valueOf(d.number).length()) {
+					for (int i = 0; i < String.valueOf(d.number).length(); i++) {
+						for (int j = i + 1; j < String.valueOf(d.number).length(); j++) {
+							char[] s = String.valueOf(d.number).toCharArray();
+							char temp = s[i];
+							s[i] = s[j];
+							s[j] = temp;
+							int c = Integer.parseInt(String.valueOf(s));
+							if (max < c)
+								max = c;
+						}
+					}
+				} else {
+
+					if (max < d.number)
+						max = d.number;
+				}
 				continue;
 			} else {
 				for (int i = 0; i < String.valueOf(d.number).length(); i++) {
@@ -44,17 +62,17 @@ public class Solution {
 						s[j] = temp;
 						int c = Integer.parseInt(String.valueOf(s));
 
-						if (!l.contains(c)) {
+						if (d.number <= c) {
 							q.add(new data(c, d.cnt + 1));
-							l.add(c);
 						}
 
 					}
 				}
 			}
 		}
-		
+
 		return max;
+
 	}
 
 	public static void main(String[] args) throws NumberFormatException, IOException {

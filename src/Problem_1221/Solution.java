@@ -3,7 +3,7 @@ package Problem_1221;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-//not sovled.
+
 public class Solution {
 	static int[] cnt = {0,0,0,0,0,0,0,0,0,0}; // 0 ~ 9
 	static String[] num = {"ZRO", "ONE", "TWO","THR", "FOR","FIV", "SIX", "SVN", "EGT", "NIN"};
@@ -59,6 +59,7 @@ public class Solution {
 			String k = br.readLine();
 			String temp = br.readLine();
 			System.out.printf("#%d\n", t);
+			for(int i= 0 ; i< 10; i++) cnt[i] = 0;
 			solution(temp.split(" "));
 		}
 

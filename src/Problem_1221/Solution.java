@@ -59,6 +59,7 @@ public class Solution {
 			String k = br.readLine();
 			String temp = br.readLine();
 			System.out.printf("#%d\n", t);
+			for(int i= 0 ; i< 10; i++) cnt[i] = 0;
 			solution(temp.split(" "));
 		}
 

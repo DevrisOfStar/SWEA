@@ -21,6 +21,7 @@ public class Solution {
 		return c;
 	}
 	
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -34,6 +35,7 @@ public class Solution {
 				arr[i] = Integer.parseInt(str[i]);
 			}
 			
+		
 			System.out.printf("#%d %d\n",t, getmax());
 		}
 	}

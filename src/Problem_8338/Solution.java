@@ -12,10 +12,12 @@ public class Solution {
 
 	
 	public static int getmax() {
+		int a, b;
 		int c = 0;
+		
 		for(int i = 0; i <N;i++) {
-			int a = c+arr[i];
-			int b = c*arr[i];
+			a = c+arr[i];
+			b = c*arr[i];
 			c = a > b ? a : b;
 		}
 		return c;
@@ -26,13 +28,13 @@ public class Solution {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int T = Integer.parseInt(br.readLine());
-
+		String str;
 		for (int t = 1; t <= T; t++) {
 			max = Integer.MIN_VALUE;
 			N = Integer.parseInt(br.readLine());
-			String[] str = br.readLine().split(" ");
+			str = br.readLine();
 			for (int i = 0; i < N; i++) {
-				arr[i] = Integer.parseInt(str[i]);
+				arr[i] = str.charAt(i*2)-'0';
 			}
 			
 		

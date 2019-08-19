@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-/* DFS로 바꿔라 : 못품 */
 class data {
 	int number;
 	int cnt;

@@ -1,6 +1,8 @@
 package Problem_3124;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -44,15 +46,16 @@ public class Solution {
 	}
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int T = sc.nextInt();
+		int T = Integer.parseInt(br.readLine());
 		long result;
 		PriorityQueue<data> pq = new PriorityQueue<>();
+		String[] str;
 		for (int t = 1; t <= T; t++) {
-
-			V = sc.nextInt();
-			E = sc.nextInt();
+			str = br.readLine().split(" ");
+			V = Integer.parseInt(str[0]);
+			E = Integer.parseInt(str[1]);
 			arr = new int[V + 1];
 			result = 0;
 			for (int i = 1; i <= V; i++) {
@@ -60,10 +63,11 @@ public class Solution {
 			}
 
 			for (int i = 0; i < E; i++) {
-				pq.offer(new data(sc.nextInt(), sc.nextInt(), sc.nextLong()));
+				str = br.readLine().split(" ");
+				pq.offer(new data(Integer.parseInt(str[0]),Integer.parseInt(str[1]),Long.parseLong(str[2])));
 			}
-
-			while (!pq.isEmpty()) {
+			int cnt =0;
+			while (!pq.isEmpty() && cnt < V-1) {
 				data d = pq.poll();
 				int start = d.start;
 				int end = d.end;
@@ -74,7 +78,7 @@ public class Solution {
 
 				union(start, end);
 				result += d.value;
-
+				cnt++;
 			}
 			System.out.printf("#%d %d\n", t, result);
 		}

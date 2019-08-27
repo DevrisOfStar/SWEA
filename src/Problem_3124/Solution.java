@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
-import java.util.Scanner;
 
 class data implements Comparable<data> {
 	int start;
@@ -64,10 +63,10 @@ public class Solution {
 
 			for (int i = 0; i < E; i++) {
 				str = br.readLine().split(" ");
-				pq.offer(new data(Integer.parseInt(str[0]),Integer.parseInt(str[1]),Long.parseLong(str[2])));
+				pq.offer(new data(Integer.parseInt(str[0]), Integer.parseInt(str[1]), Long.parseLong(str[2])));
 			}
-			int cnt =0;
-			while (!pq.isEmpty() && cnt < V-1) {
+			int cnt = 0;
+			while (!pq.isEmpty() && cnt < V - 1) {
 				data d = pq.poll();
 				int start = d.start;
 				int end = d.end;

@@ -25,7 +25,7 @@ public class Solution {
 
 				for(int n = B; n >= 0; n-=num) {
 					if(num >= n-E && num <= E+n) {
-						System.out.println ((n-E)+ "<=" + num + "<=" + (E+n));
+						//System.out.println ((n-E)+ "<=" + num + "<=" + (E+n));
 						cnt++;
 						break;
 					}

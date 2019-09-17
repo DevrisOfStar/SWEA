@@ -9,7 +9,7 @@ public class Solution {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
-		int N, min;
+		int N, min, number;
 		int[][] arr = new int[1000][1000];
 		StringTokenizer st;
 		for (int t = 1; t <= T; t++) {
@@ -19,22 +19,21 @@ public class Solution {
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
 					arr[i][j] = Integer.parseInt(st.nextToken());
+					if(arr[i][j] == 0) arr[i][j] = Integer.MAX_VALUE/2;
 				}
 			}
 			for (int k = 0; k < N; k++) {
 				for (int i = 0; i < N; i++) {
+					if(i==k) continue;
 					for (int j = 0; j < N; j++) {
-						if(i==k || j==k || i == k) continue;
-						if(arr[i][j] == 0) arr[i][j] = Integer.MAX_VALUE/2;
-						if(arr[i][k] == 0) arr[i][k] = Integer.MAX_VALUE/2;
-						if(arr[k][j] == 0) arr[k][j] = Integer.MAX_VALUE/2;
+						if(j==k || i == k) continue;
 						arr[i][j] = Math.min(arr[i][k]+arr[k][j], arr[i][j]);
 					}
 				}
 			}
 			min = Integer.MAX_VALUE;
 			for (int i = 0; i < N; i++) {
-				int number = 0;
+				number = 0;
 				for (int j = 0; j < N; j++) {
 					if(i==j) continue;
 					number+= arr[i][j];

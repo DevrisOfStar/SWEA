@@ -19,14 +19,12 @@ public class Solution {
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
 					arr[i][j] = Integer.parseInt(st.nextToken());
-					if(arr[i][j] == 0) arr[i][j] = Integer.MAX_VALUE/2;
+					if(i!=j && arr[i][j] == 0) arr[i][j] = N+1;
 				}
 			}
 			for (int k = 0; k < N; k++) {
 				for (int i = 0; i < N; i++) {
-					if(i==k) continue;
 					for (int j = 0; j < N; j++) {
-						if(j==k || i == k) continue;
 						arr[i][j] = Math.min(arr[i][k]+arr[k][j], arr[i][j]);
 					}
 				}
@@ -35,7 +33,6 @@ public class Solution {
 			for (int i = 0; i < N; i++) {
 				number = 0;
 				for (int j = 0; j < N; j++) {
-					if(i==j) continue;
 					number+= arr[i][j];
 				}
 				if(min > number) min = number;

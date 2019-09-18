@@ -15,7 +15,6 @@ public class Solution {
 			for(int i = 1; i*(i+1)/2 <= number; i++) {
 				if((number - i*(i+1)/2) % i == 0) cnt++;
 			}
-			
 			System.out.printf("#%d %d\n", t, cnt);
 		}
 	}

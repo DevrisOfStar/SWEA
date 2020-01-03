@@ -29,8 +29,6 @@ class NameCounter implements Comparable<NameCounter>{
 			return this.name.compareTo(o.name);
 		}
 	}
-	
-	
 }
 
 public class Solution {

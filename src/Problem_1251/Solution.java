@@ -49,6 +49,7 @@ public class Solution {
 		int N;
 		StringTokenizer st_x;
 		StringTokenizer st_y;
+		// 우선순위 큐 사용
 		PriorityQueue<data> d_ = new PriorityQueue<>();
 		double[] x_;
 		double[] y_;
@@ -73,6 +74,7 @@ public class Solution {
 
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
+					// 연결 가능성을 모두 계산하여 우선순위큐에 삽입.
 					if(i == j) continue;
 					double x__ = x_[j] - x_[i];
 					double y__ = y_[j] - y_[i];
@@ -88,10 +90,13 @@ public class Solution {
 
 				int a = find(start);
 				int b = find(end);
+				
+				// 같은 집합이면 패스
 				if (a == b)
 					continue;
-
+				// 다른집합이면, 같은 집합으로 합치고
 				union(start, end);
+				// 결과값에 더함
 				result += d__.value;
 			}
 

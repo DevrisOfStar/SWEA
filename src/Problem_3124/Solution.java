@@ -72,10 +72,10 @@ public class Solution {
 				int end = d.end;
 				int a = find(start);
 				int b = find(end);
-				if (a == b)
+				if (a == b) // a와 b의 집합이 같다면 패스
 					continue;
 
-				union(start, end);
+				union(start, end); // 다르면 union하고 결과값에 더해준다
 				result += d.value;
 				cnt++;
 			}

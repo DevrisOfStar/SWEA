@@ -21,7 +21,6 @@ public class Solution {
 
 				 else if(temp.length == 2 && a < 0)  f = 0;	 
 			}
-			
 			System.out.printf("#%d %d\n",t,f);
 		}
 
